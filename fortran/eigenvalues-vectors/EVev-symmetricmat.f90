@@ -32,14 +32,16 @@ program test_code
 
     ! Zeros for the lower triangular matrix (more compact because of symmetry of matrix A)
     A = reshape ( [8.1472,0.,0.,2.2690,9.0579,0.,1.2253,0.2001,1.2699], [3,3])
+    ! A = reshape ( [8.1472,2.2690,1.2253,2.2690,9.0579,0.2001,1.2253,0.2001,1.2699], [3,3]) ! gives the same result
+
     NbVec = 2
     NbHisto = 3
 
-    !!! CALCUL DES VALEURS PROPRES.
-    JOBZ = 'V' ! compute EV and ev
+    ! CALCUL DES VALEURS PROPRES.
+    JOBZ = 'V'  ! compute EV and ev
     RANGE = 'I' ! intervalle
-    UPLO = 'U' ! not used anymore
-    N = 3 !  Matrix Order
+    UPLO = 'U'  ! not used anymore
+    N = 3       ! Matrix Order
     LDA = N
     IL = 1
     IU = NbVec
