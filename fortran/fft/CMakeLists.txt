@@ -35,12 +35,12 @@ test_code.f90
 # Search for lapack/blas libraries.
 if ( WIN32 )
     find_library ( LAPACK_LIBRARIES 
-        NAMES liblapack.so
-        PATHS /usr/lib/x86_64-linux-gnu/openblas )
+        NAMES liblapack.lib
+        PATHS "C:/Program Files/PGI/win64/19.10/lib" )
 
     find_library ( BLAS_LIBRARIES 
-        NAMES libblas.so
-        PATHS /usr/lib/x86_64-linux-gnu/openblas )
+        NAMES libblas.lib
+        PATHS "C:/Program Files/PGI/win64/19.10/lib" )
     elseif()
     find_package(LAPACK REQUIRED)
 message("LAPACK_LIBRARIES=${LAPACK_LIBRARIES}")
