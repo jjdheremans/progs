@@ -28,7 +28,7 @@ file( GLOB_RECURSE
 
 srcFile
 
-affiche_tab.f90 test_code.f90
+test_code.f90
 
 )
 
