@@ -32,16 +32,8 @@ test_code.f90
 
 )
 
-
-# -------- OPTION #1 ---------- #
-# Native way of linking LAPACK/BLAS libraries in Linux (=automatic finding)
-# find_package(LAPACK REQUIRED)
-# message("LAPACK_LIBRARIES=${LAPACK_LIBRARIES}")
-# -------- --------- ---------- #
-
-# -------- OPTION #2 ---------- #
-# If another LAPACK/BLAS version must be found, find_library must be used. Their path must be specified.
-# Example: Here, Open version of lapack and Blas are seeked:
+# Search for lapack/blas libraries.
+if ( WIN32 )
 find_library ( LAPACK_LIBRARIES 
     NAMES liblapack.so
     PATHS /usr/lib/x86_64-linux-gnu/openblas )
@@ -49,6 +41,10 @@ find_library ( LAPACK_LIBRARIES
 find_library ( BLAS_LIBRARIES 
     NAMES libblas.so
     PATHS /usr/lib/x86_64-linux-gnu/openblas )
+    elseif()
+    find_package(LAPACK REQUIRED)
+message("LAPACK_LIBRARIES=${LAPACK_LIBRARIES}")
+endif()
 
 message("Blas Library Used: ${BLAS_LIBRARIES}")         # /!\ Used Symbolic link might be confusing.
 message("Lapack Library Used: ${LAPACK_LIBRARIES}")     # /!\ Used Symbolic link might be confusing.
