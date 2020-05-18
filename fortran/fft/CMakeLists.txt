@@ -34,13 +34,13 @@ test_code.f90
 
 # Search for lapack/blas libraries.
 if ( WIN32 )
-find_library ( LAPACK_LIBRARIES 
-    NAMES liblapack.so
-    PATHS /usr/lib/x86_64-linux-gnu/openblas )
+    find_library ( LAPACK_LIBRARIES 
+        NAMES liblapack.so
+        PATHS /usr/lib/x86_64-linux-gnu/openblas )
 
-find_library ( BLAS_LIBRARIES 
-    NAMES libblas.so
-    PATHS /usr/lib/x86_64-linux-gnu/openblas )
+    find_library ( BLAS_LIBRARIES 
+        NAMES libblas.so
+        PATHS /usr/lib/x86_64-linux-gnu/openblas )
     elseif()
     find_package(LAPACK REQUIRED)
 message("LAPACK_LIBRARIES=${LAPACK_LIBRARIES}")
@@ -50,7 +50,6 @@ message("Blas Library Used: ${BLAS_LIBRARIES}")         # /!\ Used Symbolic link
 message("Lapack Library Used: ${LAPACK_LIBRARIES}")     # /!\ Used Symbolic link might be confusing.
 # -------- --------- ---------- #
 
-find_package( OpenMP )
 
 # Adding Libraries
 set( LIB_FFT fftpack5.1 )
@@ -64,7 +63,6 @@ add_executable( ${PROJECT_NAME} ${srcFile}  )
 target_link_libraries( ${PROJECT_NAME} ${LIB_FFT} )
 target_link_libraries( ${PROJECT_NAME} ${BLAS_LIBRARIES} )
 target_link_libraries( ${PROJECT_NAME} ${LAPACK_LIBRARIES} )
-target_link_libraries( ${PROJECT_NAME} OpenMP::OpenMP_Fortran )
 
 
 # The following command provide the possibility to execute the executable by typing "make run" after make
