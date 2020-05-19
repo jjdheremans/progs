@@ -15,9 +15,8 @@ endif()
 
 # Version requise de CMAKE pour faire tourner le code
 cmake_minimum_required( VERSION 3.9 )
-# Nom du projet, et nom de l'executable
 
-#Definition du projet + Language du code � compiler + Version du Code compilé
+#Definition du projet + Language du code à compiler + Version du Code compilé
 Project(${PROJECT_NAME} LANGUAGES Fortran)
 
 # set( EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/bin" )
