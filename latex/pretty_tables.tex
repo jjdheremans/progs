@@ -1,0 +1,41 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry}
+\begin{document}
+
+
+% Both below style requires the booktabs package to be loaded.
+
+% Style 1: text justified on left of cell
+\begin{table}
+	\centering
+	\begin{tabular}{p{2.5cm}p{2.5cm}p{3cm}} \specialrule{.14em}{.14em}{.14em} 
+		T [\si{\degreeCelsius}] & $X$ [\si{\micro\meter}] & $D$ [\si{\micro\meter\per\second\squared}] \\ \specialrule{.14em}{.14em}{.14em} 
+		700 & 1.45 & $2.901\times10^{-6}$ \\
+		750 & 2.1 & $6.125\times10^{-6}$ \\
+		800 & 3.9 & $21.13\times10^{-6}$ \\ \specialrule{.14em}{.14em}{.14em} 
+	\end{tabular}
+	\caption{Cell content is left-justified}
+\end{table}
+
+
+% Style 2: text centered on cell
+\begin{table}
+	\centering
+	\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+	\begin{tabular}{P{2.5cm}P{2.5cm}P{3cm}} \specialrule{.14em}{.14em}{.14em} 
+		T [\si{\degreeCelsius}] & $X$ [\si{\micro\meter}] & $D$ [\si{\micro\meter\per\second\squared}] \\ \specialrule{.14em}{.14em}{.14em} 
+		700 & 1.45 & $2.901\times10^{-6}$ \\
+		750 & 2.1 & $6.125\times10^{-6}$ \\
+		800 & 3.9 & $21.13\times10^{-6}$ \\ \specialrule{.14em}{.14em}{.14em} 
+	\end{tabular}
+	\caption{Cell content is centered}
+\end{table}
+	
+\end{document}
