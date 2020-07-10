@@ -64,7 +64,7 @@ message("Lapack Library Used: ${LAPACK_LIBRARIES}")     # /!\ Used Symbolic link
 # Adding Libraries
 set( LIB_FFT fftpack5.1 )
 set( src_fft fftpack5.1.f90 )
-add_library( ${LIB_FFT} SHARED ${src_fft} )
+add_library( ${LIB_FFT} STATIC ${src_fft} )
 
 # Adding an executable target
 add_executable( ${PROJECT_NAME} ${srcFile}  )
