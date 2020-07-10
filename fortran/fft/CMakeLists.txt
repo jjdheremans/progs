@@ -6,12 +6,17 @@ set( PROJECT_NAME test_code )
 # set( PROG_VERSION 1.0.0 )
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% #
 
+
 # Set custom compiler for Windows OS.
-if ( WIN32 )
-    set( COMPILER_NAME "pgfortran" ) # set here your compiler name
-    set( PATH_TO_COMPILER "/opt/pgi/linux86-64/19.10/bin/" ) # set here your path to fortran compiler.
-    set( CMAKE_Fortran_COMPILER ${COMPILER_NAME} CACHE PATH ${PATH_TO_COMPILER} )
-endif()
+# if ( WIN32 )
+#    set( COMPILER_NAME "pgfortran" ) # set here your compiler name
+#    set( PATH_TO_COMPILER "C:/Program Files/PGI/win64/19.10/bin/" ) # set here your path to fortran compiler.
+#    set( CMAKE_Fortran_COMPILER ${COMPILER_NAME} CACHE PATH ${PATH_TO_COMPILER} )
+# endif()
+
+# enable_language(Fortran)
+
+# message( "Fortran compiler : ${CMAKE_Fortran_COMPILER} ")
 
 # Prevent from compiling in the source directory
 file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}/CMakeLists.txt" LOC_PATH)
