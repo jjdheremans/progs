@@ -18,3 +18,11 @@ elseif( ${CMAKE_Fortran_COMPILER_ID} MATCHES "PGI" )
     SET( CMAKE_Fortran_FLAGS "-cpp" )
 
 endif()
+
+# The let know the compiler if the code must be built as main or as subroutine
+# the __FINELG__ variable is introduced. It value (1 or 0) enforced with cmake .. -D__FINELG__=1
+# will defined the compilation scenario.
+if ( __FINELG__ EQUAL 1 )
+    message ( "FINELG variable: ${__FINELG__}")
+    set( CMAKE_Fortran_FLAGS "-D__FINELG__=1")
+endif()

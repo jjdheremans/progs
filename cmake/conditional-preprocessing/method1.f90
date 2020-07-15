@@ -1,4 +1,14 @@
+#if defined __FINELG__ && __FINELG__ == 1
+
+subroutine method1
+
+#else   
+
 program method1
+
+#endif
+
+
 
 implicit none
 
@@ -62,8 +72,11 @@ CHARACTER(len=10) version
 #endif
 
 
+#if defined __FINELG__ && __FINELG__ == 0
+end subroutine method1
+#else   
 end program method1
-
+#endif
 
 
 
