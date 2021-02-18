@@ -72,6 +72,13 @@ program test_code
     allocate( WORK(LWORK) )
     call zheevx( JOBZ, RANGE, UPLO, N, A, LDA, VL, VU, IL, IU, ABSTOL, M, W, Z, LDZ, WORK, LWORK, RWORK, IWORK, IFAIL, INFO)
 
+    deallocate( IWORK )
+    deallocate( IFAIL )
+    deallocate( W )
+    deallocate( Z )
+    deallocate( RWORK )
+
+
     nan = IEEE_VALUE(nan, IEEE_QUIET_NAN)
     write (*,'("Number Of Eigen Values found:",2x,i3)') M
 
