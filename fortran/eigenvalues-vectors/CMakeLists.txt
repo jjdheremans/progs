@@ -1,6 +1,6 @@
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% #
 # Nom du projet, et nom de l'executable
-set( PROJECT_NAME EVev-symmetricmat )
+set( PROJECT_NAME Eigenvalues )
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% #
 
@@ -14,12 +14,12 @@ file( GLOB_RECURSE
 
 srcFile
 
-EVev-symmetricmat.f90
+EVev-hermitianmat.f90
 
 )
 
 # -------- OPTION #1 ---------- #
-# Native way of linking LAPACK/BLAS libraries in Linux (=automatic finding)
+# Native way of linking LAPACK/BLAS libraries in Linux (=automatic reasearch)
 find_package(LAPACK REQUIRED)
 message("LAPACK_LIBRARIES=${LAPACK_LIBRARIES}")
 # -------- --------- ---------- #
