@@ -47,34 +47,32 @@ program test_code
     status = DftiCreateDescriptor( fft_descriptor, DFTI_DOUBLE, DFTI_COMPLEX, 1, N )
     status = DftiCommitDescriptor( fft_descriptor )
 
-
-
     ! %% FORWARD FFT %%
     status = DftiComputeForward(fft_descriptor, Xw ) ! get the forward FFT in Xw
 
     print *, "Intermediate vector (frequency domain):"
     do i = 1, N
-        write( *, '(f8.4,"+",f8.4,"i")') Xw(i)
+        write( *, *) Xw(i)
     end do
-
-
-
 
     ! %% BACKWARD FFT %%
     status = DftiComputeBackward(fft_descriptor, Xw ) ! get the backward fft in Xw
 
-    print *, ""
-    print *, "Final vector (time domaine)"
-    do i = 1, N
-        write( *, '(f12.4,"+",f8.4,"i")') Xw(i) ! The imag part should be imag
-    end do
 
     ! xt can be recovered dividing by N (non scaled DFFT)
     Xw = Xw / N
 
+    print *, ""
+    print *, "Final vector (time domaine)"
+    do i = 1, N
+        write( *, * ) Xw(i) ! The imag part should be imag
+    end do
+
+
+
 
     deallocate( xt )
-    status = DftifreeDescriptor(fft_descriptor )
+    status = DftifreeDescriptor( fft_descriptor )
 
 
 end program test_code
